@@ -1,0 +1,939 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Header section */
+
+header{
+    width: 100%; 
+    max-width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 1000;
+    padding: 0 6vw;
+}
+
+header nav a{
+    color: #fff;
+    margin-right: 5px;
+    padding: 5px 10px;
+    font-size: 16px;
+    transition: 0.2s;
+    text-decoration: none;
+}
+
+a.active{
+    background: #14ff72cb;
+    border-radius: 2px;
+}
+
+a:hover{
+    background: #14ff72cb;
+    border-radius: 2px;
+}
+
+.Logooo{
+    width: 70px;
+    margin-top: 30px;
+}
+
+
+
+
+/* Header section */
+
+
+
+/* carousel */
+
+.carousel{
+    width: 99.1vw;
+    height: 100vh;
+    margin-top: -50px;
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel .list .item{
+    width: 180px;
+    height: 250px;
+    position: absolute;
+    top: 80%;
+    transform: translateY(-70%);
+    left: 70%;
+    border-radius: 20px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+    background-position: 50% 50%;
+    background-size: cover;
+    z-index: 100;
+    transition: 1s;
+    
+}
+
+.carousel .list .item:nth-child(1),
+.carousel .list .item:nth-child(2){
+    top: 0;
+    left: 0;
+    transform: translate(0, 0);
+    border-radius: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.carousel .list .item:nth-child(3){
+    left: 67%;
+}
+
+.carousel .list .item:nth-child(4){
+    left: calc(67% + 200px);
+}
+
+.carousel .list .item:nth-child(5){
+    left: calc(67% + 400px);
+}
+
+.carousel .list .item:nth-child(6){
+    left: calc(67% + 600px);
+}
+
+.carousel .list .item:nth-child(n+7){
+    left: calc(67% + 800px);
+    opacity: 0;
+}
+
+
+
+.list .item .content{
+    position: absolute;
+    top: 50%;
+    left: 100px;
+    transform: translateY(-50%);
+    width: 400px;
+    text-align: left;
+    color: #fff;
+    display: none;
+}
+
+.list .item:nth-child(2) .content{
+    display: block;
+}
+
+.content .title{
+    font-size: 100px;
+    text-transform: uppercase;
+    color: #14ff72cb;
+    font-weight: bold;
+    line-height: 1;
+
+    opacity: 0;
+    animation: animate 1s ease-in-out 0.3s 1 forwards;
+}
+
+.content .name{
+    font-size: 100px;
+    text-transform: uppercase;
+    font-weight: bold;
+    line-height: 1;
+    text-shadow: 3px 4px 4px rgba(255, 255, 255, 0.8);
+
+    opacity: 0;
+    animation: animate 1s ease-in-out 0.6s 1 forwards;
+}
+
+.content .des{
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    margin-left: 5px;
+
+    opacity: 0;
+    animation: animate 1s ease-in-out 0.9s 1 forwards;
+}
+
+.content .btn{
+    margin-left: 5px;
+
+    opacity: 0;
+    animation: animate 1s ease-in-out 1.2s 1 forwards;
+}
+
+.content .btn button{
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border: 2px solid #fff;
+}
+
+.content .btn button:nth-child(1){
+    margin-right: 15px;
+}
+
+.content .btn button:nth-child(2){
+    background: transparent;
+    color: #14ff72cb;
+    border: 2px solid #fff;
+    transition: 0.3s;
+}
+
+.content .btn button:nth-child(2):hover{
+    background-color: #14ff72cb;
+    color: #fff;
+    border-color: #14ff72cb;
+}
+
+
+@keyframes animate {
+    
+    from{
+        opacity: 0;
+        transform: translate(0, 100px);
+        filter: blur(33px);
+    }
+
+    to{
+        opacity: 1;
+        transform: translate(0);
+        filter: blur(0);
+    }
+}
+
+/* Carousel */
+
+
+
+
+
+
+/* next prev arrows */
+
+.arrows{
+    position: absolute;
+    top: 80%;
+    right: 52%;
+    z-index: 100;
+    width: 300px;
+    max-width: 30%;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.arrows button{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #14ff72cb;
+    color: #fff;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    font-family: monospace;
+    font-weight: bold;
+    transition: .5s;
+    cursor: pointer;
+}
+
+.arrows button:hover{
+    background: #fff;
+    color: #000;
+}
+
+
+/* time running */
+.carousel .timeRunning{
+    position: absolute;
+    z-index: 1000;
+    width: 0%;
+    height: 4px;
+    background-color: #14ff72cb;
+    left: 0;
+    top: 0;
+    animation: runningTime 7s linear 1 forwards;
+}
+
+.arrow-btn{
+    font-size: 30px;
+    padding-top: 5px;
+}
+
+
+@keyframes runningTime {
+    
+    from{width: 0%;}
+    to{width: 100%;}
+
+}
+
+
+/* Responsive Design */
+
+@media screen and (max-width: 999px){
+    
+    header{
+        padding-left: 50px;
+    }
+
+    .list .item .content{
+        left: 50px;
+    }
+
+    .content .title, .content .name{
+        font-size: 70px;
+    }
+
+    .content .des{
+        font-size: 16px;
+    }
+
+}
+
+@media screen and (max-width: 690px){
+    header nav a{
+        font-size: 14px;
+        margin-right: 0;
+    }
+
+    .list .item .content{
+        top: 40%;
+    }
+
+    .content .title, .content .name{
+        font-size: 45px;
+    }
+
+    .content .btn button{
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+}
+
+
+
+
+
+
+
+
+/* About  */
+
+.About{
+    height: 750px;
+    /* background-image: url(image/wallpaper1.jpg); */
+    background: linear-gradient(rgba(15, 23, 43, .9), rgba(15, 23, 43, .9)), url(image/wallpaper1.jpg);
+    display: flex;
+}
+
+/* Photo slider  */
+
+.AboutDetails{
+    width: 100%;
+}
+
+.Photo-slider{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 3vh;
+    width: 60%;
+}
+
+.card_container{
+    max-width: 35vw;
+    width: 100%;
+    height: 20vw;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 1.25rem;
+    transition: all 0.4s;
+}
+
+.expandable-card{
+    flex: 1;
+    height: 100%;
+    transition: all 0.4s;
+}
+
+.expandable-card img{
+    max-width: 100%;
+    height: 100%;
+    display: block;
+    border-radius: 16px;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.expandable-card:nth-child(odd){
+    translate: 0 -20px;
+}
+
+.expandable-card:nth-child(even){
+    translate: 0 20px;
+}
+
+.card_container .expandable-card:not(:hover){
+    filter: grayscale(100%);
+}
+
+.expandable-card:hover{
+    flex: 4;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* About Naruto */
+.AboutHeading{
+    background: #000;
+    color: #fff;
+    font-size: 30px;
+    display: inline-block;
+    padding: 0 10px;
+    margin-top: 10px;
+}
+.AboutHeading span{
+    font-size: 40px;
+    
+}
+
+.NarutoDetails p{
+    margin-top: 20px;
+    color: #fff;
+    width: 70%;
+}
+
+.hero{
+    height: 400px;
+    position: relative;
+}
+
+/* #fa9426 */
+
+
+@media screen and (max-width: 690px){
+    .Photo-slider{
+        display: none;
+    }
+
+    .AboutHeading{
+        background: #000;
+        color: #fff;
+        font-size: 20px;
+        display: inline-block;
+        padding: 0 10px;
+        margin-top: 10px;
+    }
+    .AboutHeading span{
+        font-size: 25px;
+        
+    }
+    .NarutoDetails p{
+        margin-top: 20px;
+        color: #fff;
+        font-size: 9px;
+        padding-left: 25px;
+    }
+    
+}
+
+
+
+ /* Team member start Start */
+
+ .autoRotate{
+    animation: autoRotateAnimation;
+    animation-timeline: view();
+    width: 100px;
+}
+@keyframes autoRotateAnimation{
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(900deg);
+    }
+}
+
+.suri{
+    display: flex;
+    justify-content: center;
+}
+
+.teamContainer{
+    
+    background: #fa9426;
+    padding: 20px 0 70px 0;
+}
+
+.teamContainer h1{
+    color: #fa9426;
+    text-shadow: 0 0 20px #000;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 50px;
+    text-align: center;
+    padding-top: 0;
+    padding-bottom: 30px;
+}
+
+
+.wrapper .card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;
+    perspective-origin: 50% 50%;
+}
+
+@media screen and (max-width: 1000px){
+    .wrapper{
+        gap: 130px;
+        padding-top: 140px;
+        padding-bottom: 80px;
+    }
+    
+    .wrapper .card{
+        height: 15vh;
+    }
+}
+
+.card .imgContainer{
+    width: 150px;
+    aspect-ratio: 2 / 3;
+    background: var(--imgUrl);
+    background-position: center;
+    background-size: cover;
+    border-radius: 10px;
+    transition: 500ms ease;
+    box-shadow: 0 10px 30px #000000cc;
+    border: 1px solid #fff;
+    cursor: pointer;
+}
+
+.card .img{
+    position: absolute;
+    width: 150px;
+    aspect-ratio: 3 / 4;
+    background: var(--pngImgUrl);
+    background-size: cover;
+    background-position: center;
+    pointer-events: none;
+    transform: translate3d(0px, 0px, 0px) scale(1);
+    transition: 500ms ease;
+    transform-origin: bottom;
+    z-index: 10;
+    opacity: 0;
+}
+
+.img .overLayer{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -20px;
+    width: 100%;
+    height: 60px;
+    filter: blur(15px);
+    opacity: 1;
+    transition: opacity 500ms ease;
+    background: #000;
+ 
+}
+
+.imgContainer:hover{
+    box-shadow: 0px 50px 50px #000000cc;
+    transform: translate3d(0px, 0px, 50px) rotate3d(1, 0, 0, 55deg);
+    filter: brightness(30%);
+}
+
+.imgContainer:hover ~ .img{
+    transform: translate3d(0px, -50px, 50px) scale(1.2);
+    opacity: 1;
+}
+
+ /* Team member start End  */
+
+
+
+/* Hokage Team Start  */
+
+.HokaInfo{
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+.HokageTeam{
+    background: linear-gradient(rgba(15, 23, 43, .9), rgba(15, 23, 43, .9)), url(image/hokaBg.jpg);
+ }
+
+
+.iteem h1{
+    display: block;
+}
+
+ .slider{
+    width: 100%;
+    height: var(--height);
+    padding-top: 200px;
+    overflow: hidden;
+    mask-image: linear-gradient(
+        to right,
+        transparent,
+        #000 10% 90%,
+        transparent
+    );
+}
+.slider .list{
+    display: flex;
+    width: 100%;
+    min-width: calc(var(--width) * var(--quantity));
+    position: relative;
+}
+.slider .list .iteem{
+    width: var(--width);
+    height: var(--height);
+    position: absolute;
+    left: 100%;
+    animation: autoRun 10s linear infinite;
+    transition: filter 0.5s;
+    animation-delay: calc( (10s / var(--quantity)) * (var(--position) - 1) - 10s)!important;
+}
+
+@keyframes autoRun{
+    from{
+        left: 100%;
+    }to{
+        left: calc(var(--width) * -1);
+    }
+}
+.slider:hover .iteem{
+    animation-play-state: paused!important;
+    filter: grayscale(1);
+}
+.slider .iteem:hover{
+    filter: grayscale(0);
+}
+.slider[reverse="true"] .iteem{
+    animation: reversePlay 10s linear infinite;
+}
+@keyframes reversePlay{
+    from{
+        left: calc(var(--width) * -1);
+    }to{
+        left: 100%;
+    }
+}
+
+
+
+/* Hokage Team End */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ /* OrochiTeam Start  */
+
+
+ .OrochiTeam{
+    background: linear-gradient(rgba(15, 23, 43, .9), rgba(15, 23, 43, .9)), url(image/orochiBg.jpg);
+ }
+
+ .team .team_box .profile{
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    margin: 0 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-shadow: 0 0 8px rgba(0,0,0,0.5);
+    transition: 0.4s;
+}
+
+
+
+.team .team_box .profile img{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 8px rgba(0,0,0,0.5);
+    z-index: 2;
+    transition: 0.4s;
+}
+
+
+.team .team_box .profile .info{
+    position: absolute;
+    text-align: center;
+    top: 25%;
+    transition: 0.4s;
+}
+
+.OroInfo{
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+}
+.OroDetails{
+    color: gold;
+}
+
+
+@media screen and (max-width: 690px){
+    .OroInfo{
+        display: block;
+        gap: 0;
+        padding: 10px;
+    }
+    
+}
+
+ /* OrochiTeam End  */
+
+
+/* Tail BEast Start  */
+
+.TailBeast{
+    background-color: #D2D2D2;
+    background-image:
+    repeating-linear-gradient(
+        to right, transparent 0 100px,
+        #25283b22 100px 101px
+    ),
+    repeating-linear-gradient(
+        to bottom, transparent 0 100px,
+        #25283b22 100px 101px
+    );
+}
+
+
+.TailBeast::before{
+    position: absolute;
+    width: min(1400px, 90vw);
+    top: 10%;
+    left: 50%;
+    height: 90%;
+    transform: translateX(-50%);
+    conten: '';
+    background-image: url(image/TailBeast/bg.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: top center;
+    pointer-events: none;
+}
+
+
+
+.baanner{
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+}
+.baanner .sliideer{
+    position: absolute;
+    width: 200px;
+    height: 250px;
+    top: 10%;
+    left: calc(50% - 100px);
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+    animation: autoRun 20s linear infinite;
+    z-index: 2;
+}
+@keyframes autoRun{
+    from{
+        transform: perspective(1000px) rotateX(-16deg) rotateY(0deg);
+    }to{
+        transform: perspective(1000px) rotateX(-16deg) rotateY(360deg);
+    }
+}
+
+.baanner .sliideer .iitem{
+    position: absolute;
+    inset: 0 0 0 0;
+    transform: 
+        rotateY(calc( (var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+        translateZ(550px);
+}
+.baanner .sliideer .iitem img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.baanner .conten{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(1400px, 100vw);
+    height: max-conten;
+    padding-bottom: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-conten: space-between;
+    align-iitems: center;
+    z-index: 1;
+}
+.baanner .conten h1{
+    font-family: 'ICA Rubrik';
+    font-size: 16em;
+    line-height: 1em;
+    color: #25283B;
+    position: relative;
+}
+.baanner .conten h1::after{
+    position: absolute;
+    inset: 0 0 0 0;
+    conten: attr(data-conten);
+    z-index: 2;
+    -webkit-text-stroke: 2px #d2d2d2;
+    color: transparent;
+}
+.baanner .conten .author{
+    font-family: Poppins;
+    text-align: right;
+    max-width: 200px;
+}
+.baanner .conten h2{
+    font-size: 3em;
+}
+.baanner .conten .model{
+    background-image: url(image/TailBeast/model1.png);
+    width: 100%;
+    height: 75vh;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-size: auto 130%;
+    background-repeat: no-repeat;
+    background-position: top center;
+    z-index: 1;
+}
+@media screen and (max-width: 1023px) {
+    .baanner .sliideer{
+        width: 160px;
+        height: 200px;
+        left: calc(50% - 80px);
+    }
+    .baanner .sliideer .iitem{
+        transform: 
+            rotateY(calc( (var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+            translateZ(300px);
+    }
+    .baanner .conten h1{
+        text-align: center;
+        width: 100%;
+        text-shadow: 0 10px 20px #000;
+        font-size: 7em;
+    }
+    .baanner .conten .author{
+        color: #fff;
+        padding: 20px;
+        text-shadow: 0 10px 20px #000;
+        z-index: 2;
+        max-width: unset;
+        width: 100%;
+        text-align: center;
+        padding: 0 30px;
+    }
+}
+@media screen and (max-width: 767px) {
+    .baanner .sliideer{
+        width: 100px;
+        height: 150px;
+        left: calc(50% - 50px);
+    }
+    .baanner .sliideer .iitem{
+        transform: 
+            rotateY(calc( (var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+            translateZ(180px);
+    }
+    .baanner .conten h1{
+        font-size: 5em;
+    }
+}
+
+/* Tail BEast End  */
+
+
+/* Company Logo Infinity Start */
+
+
+.company ul{
+    padding: 0;
+    list-style: none;
+    display: flex;
+    width: max-content;
+    animation: runcompany 5s linear infinite;
+}
+.company img{
+    height: 15px;
+    margin-right: 10px;
+}
+.company li{
+    background-color: #292A2E;
+    width: 150px;
+    letter-spacing: 1px;
+    font-family: monospace;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: 150px;
+    padding: 10px 0 10px 10px;
+    margin-right: 5px;
+}
+.company{
+    overflow: hidden;
+    padding: 20px 0;
+    color: #fff;
+}
+@keyframes runcompany{
+    from{
+        transform: translateX(0);
+    }to{
+        transform: translateX(calc(-165px * 7));
+    }
+}
+
+
+/* Company Logo Infinity End */
+
